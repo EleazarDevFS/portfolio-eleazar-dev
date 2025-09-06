@@ -1,0 +1,65 @@
+<!-- ========== HEADER ========== -->
+<header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+  <nav id="home" class="mt-4 relative max-w-2xl w-full bg-white border border-gray-200 rounded-[24px] mx-2 flex flex-wrap md:flex-nowrap items-center justify-between p-1 ps-4 md:py-0 sm:mx-auto dark:bg-neutral-900 dark:border-neutral-700">
+    <div class="flex items-center">
+      <!-- Logo -->
+      <a href="#" class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" aria-label="Preline">
+        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="50px" fill="#fff">
+            <path d="M240-360h96q19 0 32.5-13.5T382-406v-148q0-19-13.5-32.5T336-600h-96v240Zm46-46v-148h50v148h-50Zm149 46h98v-46h-82v-52h52v-46h-52v-50h82v-46h-98q-13 0-21.5 8.5T405-570v180q0 13 8.5 21.5T435-360Zm206-1q13 0 22.5-8.5T676-391l56-209h-48l-43 164-43-164h-48l56 209q3 13 12.5 21.5T641-361ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+        </svg>
+      </a>
+      <h2 (click)="goHome()" class="whitespace-nowrap ml-2 text-sm font-semibold" style="color: beige;">Web Backend Developer</h2>
+      <!-- End Logo -->
+
+      <div class="ms-1 sm:ms-2">
+
+      </div>
+    </div>
+
+    <div class="flex items-center gap-1 md:order-4 md:ms-4">
+      <a class="w-full sm:w-auto whitespace-nowrap py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-200" href="#">
+        Book a call
+      </a>
+
+      <div class="md:hidden">
+        <!-- Toggle Button -->
+        <button type="button" class="hs-collapse-toggle flex justify-center items-center size-9.5 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-navbar-header-floating-collapse" aria-expanded="false" aria-controls="hs-navbar-header-floating" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-header-floating">
+          <svg class="hs-collapse-open:hidden shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+          <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <!-- End Toggle Button -->
+      </div>
+    </div>
+
+    <div id="hs-navbar-header-floating" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-header-floating-collapse">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
+        <a 
+          (click)="setActiveLink('home')"
+          [class]="'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 font-medium focus:outline-hidden ' + 
+                   (isActive('home') ? 'border-gray-800 text-gray-800 hover:text-gray-800 dark:border-neutral-200 dark:text-neutral-200 dark:hover:text-neutral-200' : 
+                                       'border-transparent text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200')" 
+          href="#" 
+          [attr.aria-current]="isActive('home') ? 'page' : null">Home</a>
+        <a 
+          (click)="setActiveLink('experience')"
+          [class]="'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 font-medium focus:outline-hidden ' + 
+                   (isActive('experience') ? 'border-gray-800 text-gray-800 hover:text-gray-800 dark:border-neutral-200 dark:text-neutral-200 dark:hover:text-neutral-200' : 
+                                             'border-transparent text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200')" 
+          href="#experience">Experience</a>
+        <a 
+          (click)="setActiveLink('projects')"
+          [class]="'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 font-medium focus:outline-hidden ' + 
+                   (isActive('projects') ? 'border-gray-800 text-gray-800 hover:text-gray-800 dark:border-neutral-200 dark:text-neutral-200 dark:hover:text-neutral-200' : 
+                                           'border-transparent text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200')" 
+          href="#projects">Projects</a>
+        <a 
+          (click)="setActiveLink('education')"
+          [class]="'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 font-medium focus:outline-hidden ' + 
+                   (isActive('education') ? 'border-gray-800 text-gray-800 hover:text-gray-800 dark:border-neutral-200 dark:text-neutral-200 dark:hover:text-neutral-200' : 
+                                            'border-transparent text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200')" 
+          href="#education">Education</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- ========== END HEADER ========== -->
