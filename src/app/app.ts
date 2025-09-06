@@ -2,10 +2,9 @@ import { Component, signal, OnInit } from '@angular/core';
 import {Router, NavigationEnd, Event } from '@angular/router';
 import { Header } from './components/header/header';
 import { Content } from './components/content/content';
-import { Footer } from './components/footer/footer';
 @Component({
   selector: 'app-root',
-  imports: [Header, Content, Footer],
+  imports: [Header, Content],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
