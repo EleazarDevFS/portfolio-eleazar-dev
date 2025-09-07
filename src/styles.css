@@ -5,3 +5,662 @@
 :root {
   color-scheme: light dark;
 }
+
+.border-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.border-animation::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(90deg, #8356ad, #ef4444, #c75ba3);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.border-animation::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(90deg, transparent, #ef4444, transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  animation: rotate-border 2s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.border-animation:hover::before,
+.border-animation:hover::after {
+  opacity: 1;
+}
+
+/* Animación de bolita que recorre el borde */
+.border-ball {
+  position: relative;
+  overflow: visible;
+}
+
+.border-ball::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ef4444 0%, #dc2626 50%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ef4444, 0 0 20px #ef444440;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.border-ball:hover::before {
+  opacity: 1;
+  animation: move-around-border 3s linear infinite;
+}
+
+/* Animación con rastro multicolor mejorado */
+.border-trail {
+  position: relative;
+  overflow: visible;
+}
+
+/* Bolita principal */
+.border-trail::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 15;
+  transition: opacity 0.3s ease;
+  filter: blur(0.5px);
+}
+
+/* Rastro de sombra */
+.border-trail::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 12;
+  transition: opacity 0.3s ease;
+  filter: blur(1px);
+}
+
+.border-trail:hover::before {
+  opacity: 1;
+  animation: trail-ball 3s linear infinite;
+}
+
+.border-trail:hover::after {
+  opacity: 0.6;
+  animation: trail-shadow 3s linear infinite;
+}
+
+/* Animación de pulso neón */
+.neon-pulse {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(240, 248, 255, 0.98) 25%,
+    rgba(248, 250, 252, 0.96) 50%,
+    rgba(245, 247, 250, 0.95) 100%
+  );
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  transition: all 0.3s ease;
+}
+
+.neon-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.3),
+    rgba(147, 197, 253, 0.4),
+    rgba(219, 234, 254, 0.5),
+    rgba(255, 255, 255, 0.4),
+    rgba(219, 234, 254, 0.4),
+    rgba(59, 130, 246, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+  animation: neon-wave 3s ease-in-out infinite;
+}
+
+.neon-pulse:hover::before {
+  left: 100%;
+  transition: left 0.8s;
+}
+
+.neon-pulse:hover {
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(147, 197, 253, 0.3),
+    0 0 60px rgba(219, 234, 254, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Animación de ondas eléctricas */
+.electric-wave {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(235, 248, 255, 0.96) 25%,
+    rgba(219, 234, 254, 0.94) 50%,
+    rgba(239, 246, 255, 0.96) 75%,
+    rgba(248, 250, 252, 0.98) 100%
+  );
+  border: 1px solid rgba(147, 197, 253, 0.4);
+}
+
+.electric-wave::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0, 191, 255, 1) 0%,
+    rgba(30, 144, 255, 0.9) 20%,
+    rgba(138, 43, 226, 0.8) 40%,
+    rgba(255, 20, 147, 0.7) 60%,
+    rgba(255, 215, 0, 0.6) 80%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.electric-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 20, 147, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 127, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 40% 40%, rgba(30, 144, 255, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.5) 0%, transparent 35%),
+    radial-gradient(circle at 10% 30%, rgba(138, 43, 226, 0.5) 0%, transparent 35%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: electric-sparks 2s ease-in-out infinite alternate;
+}
+
+.electric-wave:hover::before {
+  width: 400px;
+  height: 400px;
+  opacity: 1;
+  animation: electric-pulse 1.2s ease-out infinite;
+}
+
+.electric-wave:hover::after {
+  opacity: 1;
+}
+
+.electric-wave:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 191, 255, 0.8),
+    0 0 60px rgba(255, 20, 147, 0.6),
+    0 0 90px rgba(255, 215, 0, 0.4),
+    inset 0 0 25px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Animación de cometa */
+.comet-trail {
+  position: relative;
+  overflow: visible;
+}
+
+.comet-trail::before {
+  content: '●';
+  position: absolute;
+  font-size: 10px;
+  color: #ff4081;
+  opacity: 0;
+  z-index: 15;
+  transition: opacity 0.3s ease;
+  text-shadow: 
+    0 0 15px #ff4081,
+    0 0 25px #ff408180,
+    -20px 0 10px #ff408140,
+    -40px 0 8px #ff408120,
+    -60px 0 6px #ff408110;
+  filter: blur(0.5px);
+}
+
+.comet-trail:hover::before {
+  opacity: 1;
+  animation: comet-path 3.5s ease-in-out infinite;
+}
+
+.comet-trail:hover {
+  box-shadow: 0 0 15px rgba(255, 64, 129, 0.3);
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+    border: solid 1px #ef4444;
+  }
+  100% {
+    transform: rotate(360deg);
+    border: solid 1px #30aed4;
+  }
+}
+
+@keyframes move-around-border {
+  0% {
+    top: -4px;
+    left: -4px;
+  }
+  25% {
+    top: -4px;
+    left: calc(100% - 4px);
+  }
+  50% {
+    top: calc(100% - 4px);
+    left: calc(100% - 4px);
+  }
+  75% {
+    top: calc(100% - 4px);
+    left: -4px;
+  }
+  100% {
+    top: -4px;
+    left: -4px;
+  }
+}
+
+@keyframes trail-ball {
+  0% {
+    top: -5px;
+    left: -5px;
+    background: radial-gradient(circle, #ff006a, #ff006a, transparent);
+    box-shadow: 
+      0 0 10px #ff006a,
+      0 0 20px #ff006a80,
+      -8px 0 6px #ff006a40,
+      -16px 0 4px #ff006a20,
+      -24px 0 2px #ff006a10;
+  }
+  12.5% {
+    top: -5px;
+    left: 12.5%;
+    background: radial-gradient(circle, #ff3300, #ff3300, transparent);
+    box-shadow: 
+      0 0 10px #ff3300,
+      0 0 20px #ff330080,
+      -8px 0 6px #ff330040,
+      -16px 0 4px #ff330020;
+  }
+  25% {
+    top: -5px;
+    left: calc(100% - 5px);
+    background: radial-gradient(circle, #00ff66, #00ff66, transparent);
+    box-shadow: 
+      0 0 10px #00ff66,
+      0 0 20px #00ff6680,
+      0 -8px 6px #00ff6640,
+      0 -16px 4px #00ff6620;
+  }
+  37.5% {
+    top: 12.5%;
+    left: calc(100% - 5px);
+    background: radial-gradient(circle, #0066ff, #0066ff, transparent);
+    box-shadow: 
+      0 0 10px #0066ff,
+      0 0 20px #0066ff80,
+      0 -8px 6px #0066ff40,
+      0 -16px 4px #0066ff20;
+  }
+  50% {
+    top: calc(100% - 5px);
+    left: calc(100% - 5px);
+    background: radial-gradient(circle, #ffff00, #ffaa00, transparent);
+    box-shadow: 
+      0 0 10px #ffff00,
+      0 0 20px #ffff0080,
+      8px 0 6px #ffff0040,
+      16px 0 4px #ffff0020;
+  }
+  62.5% {
+    top: calc(100% - 5px);
+    left: 62.5%;
+    background: radial-gradient(circle, #ff9900, #ff6600, transparent);
+    box-shadow: 
+      0 0 10px #ff9900,
+      0 0 20px #ff990080,
+      8px 0 6px #ff990040,
+      16px 0 4px #ff990020;
+  }
+  75% {
+    top: calc(100% - 5px);
+    left: -5px;
+    background: radial-gradient(circle, #9900ff, #6600ff, transparent);
+    box-shadow: 
+      0 0 10px #9900ff,
+      0 0 20px #9900ff80,
+      0 8px 6px #9900ff40,
+      0 16px 4px #9900ff20;
+  }
+  87.5% {
+    top: 62.5%;
+    left: -5px;
+    background: radial-gradient(circle, #ff0099, #cc0066, transparent);
+    box-shadow: 
+      0 0 10px #ff0099,
+      0 0 20px #ff009980,
+      0 8px 6px #ff009940,
+      0 16px 4px #ff009920;
+  }
+  100% {
+    top: -5px;
+    left: -5px;
+    background: radial-gradient(circle, #ff006a, #ff006a, transparent);
+    box-shadow: 
+      0 0 10px #ff006a,
+      0 0 20px #ff006a80,
+      -8px 0 6px #ff006a40,
+      -16px 0 4px #ff006a20;
+  }
+}
+
+@keyframes trail-shadow {
+  0% {
+    top: -3px;
+    left: -3px;
+    background: radial-gradient(circle, #ff006a60, transparent);
+    animation-delay: 0.1s;
+  }
+  12.5% {
+    top: -3px;
+    left: 12.5%;
+    background: radial-gradient(circle, #ff330060, transparent);
+  }
+  25% {
+    top: -3px;
+    left: calc(100% - 3px);
+    background: radial-gradient(circle, #00ff6660, transparent);
+  }
+  37.5% {
+    top: 12.5%;
+    left: calc(100% - 3px);
+    background: radial-gradient(circle, #0066ff60, transparent);
+  }
+  50% {
+    top: calc(100% - 3px);
+    left: calc(100% - 3px);
+    background: radial-gradient(circle, #ffff0060, transparent);
+  }
+  62.5% {
+    top: calc(100% - 3px);
+    left: 62.5%;
+    background: radial-gradient(circle, #ff990060, transparent);
+  }
+  75% {
+    top: calc(100% - 3px);
+    left: -3px;
+    background: radial-gradient(circle, #9900ff60, transparent);
+  }
+  87.5% {
+    top: 62.5%;
+    left: -3px;
+    background: radial-gradient(circle, #ff009960, transparent);
+  }
+  100% {
+    top: -3px;
+    left: -3px;
+    background: radial-gradient(circle, #ff006a60, transparent);
+  }
+}
+
+
+@keyframes electric-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 1;
+    background: radial-gradient(
+      circle,
+      rgba(0, 191, 255, 1) 0%,
+      rgba(30, 144, 255, 0.9) 20%,
+      rgba(138, 43, 226, 0.8) 40%,
+      rgba(255, 20, 147, 0.7) 60%,
+      transparent 80%
+    );
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.8;
+    background: radial-gradient(
+      circle,
+      rgba(255, 20, 147, 1) 0%,
+      rgba(138, 43, 226, 0.9) 20%,
+      rgba(30, 144, 255, 0.8) 40%,
+      rgba(255, 215, 0, 0.7) 60%,
+      transparent 80%
+    );
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 1) 0%,
+      rgba(255, 20, 147, 0.9) 20%,
+      rgba(0, 191, 255, 0.8) 40%,
+      rgba(138, 43, 226, 0.7) 60%,
+      transparent 80%
+    );
+  }
+}
+
+@keyframes electric-sparks {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: scale(1.1) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.9) rotate(180deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: scale(1.2) rotate(270deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes star-orbit {
+  0% {
+    top: -6px;
+    left: -6px;
+    transform: rotate(0deg);
+    color: #ffd700;
+  }
+  25% {
+    top: -6px;
+    left: calc(100% - 6px);
+    transform: rotate(90deg);
+    color: #ff69b4;
+  }
+  50% {
+    top: calc(100% - 6px);
+    left: calc(100% - 6px);
+    transform: rotate(180deg);
+    color: #00ff7f;
+  }
+  75% {
+    top: calc(100% - 6px);
+    left: -6px;
+    transform: rotate(270deg);
+    color: #1e90ff;
+  }
+  100% {
+    top: -6px;
+    left: -6px;
+    transform: rotate(360deg);
+    color: #ffd700;
+  }
+}
+
+@keyframes star-orbit-reverse {
+  0% {
+    top: calc(100% - 4px);
+    left: calc(100% - 4px);
+    transform: rotate(0deg) scale(1);
+    color: #00ffff;
+  }
+  25% {
+    top: calc(100% - 4px);
+    left: -4px;
+    transform: rotate(-90deg) scale(1.2);
+    color: #ff00ff;
+  }
+  50% {
+    top: -4px;
+    left: -4px;
+    transform: rotate(-180deg) scale(0.8);
+    color: #ffff00;
+  }
+  75% {
+    top: -4px;
+    left: calc(100% - 4px);
+    transform: rotate(-270deg) scale(1.1);
+    color: #ff4500;
+  }
+  100% {
+    top: calc(100% - 4px);
+    left: calc(100% - 4px);
+    transform: rotate(-360deg) scale(1);
+    color: #00ffff;
+  }
+}
+
+@keyframes comet-path {
+  0% {
+    top: -5px;
+    left: -5px;
+    color: #ff4081;
+    text-shadow: 
+      0 0 15px #ff4081,
+      0 0 25px #ff408180,
+      -15px 0 10px #ff408140,
+      -30px 0 8px #ff408120;
+  }
+  15% {
+    top: -5px;
+    left: 20%;
+    color: #e91e63;
+    text-shadow: 
+      0 0 15px #e91e63,
+      0 0 25px #e91e6380,
+      -20px 0 10px #e91e6340,
+      -40px 0 8px #e91e6320;
+  }
+  30% {
+    top: -5px;
+    left: calc(100% - 5px);
+    color: #9c27b0;
+    text-shadow: 
+      0 0 15px #9c27b0,
+      0 0 25px #9c27b080,
+      0 -25px 10px #9c27b040,
+      0 -50px 8px #9c27b020;
+  }
+  45% {
+    top: 30%;
+    left: calc(100% - 5px);
+    color: #673ab7;
+    text-shadow: 
+      0 0 15px #673ab7,
+      0 0 25px #673ab780,
+      0 -30px 10px #673ab740,
+      0 -60px 8px #673ab720;
+  }
+  60% {
+    top: calc(100% - 5px);
+    left: calc(100% - 5px);
+    color: #3f51b5;
+    text-shadow: 
+      0 0 15px #3f51b5,
+      0 0 25px #3f51b580,
+      25px 0 10px #3f51b540,
+      50px 0 8px #3f51b520;
+  }
+  75% {
+    top: calc(100% - 5px);
+    left: 60%;
+    color: #2196f3;
+    text-shadow: 
+      0 0 15px #2196f3,
+      0 0 25px #2196f380,
+      30px 0 10px #2196f340,
+      60px 0 8px #2196f320;
+  }
+  90% {
+    top: calc(100% - 5px);
+    left: -5px;
+    color: #00bcd4;
+    text-shadow: 
+      0 0 15px #00bcd4,
+      0 0 25px #00bcd480,
+      0 35px 10px #00bcd440,
+      0 70px 8px #00bcd420;
+  }
+  100% {
+    top: -5px;
+    left: -5px;
+    color: #ff4081;
+    text-shadow: 
+      0 0 15px #ff4081,
+      0 0 25px #ff408180,
+      -15px 0 10px #ff408140,
+      -30px 0 8px #ff408120;
+  }
+}
+
+/* Animación suave para navegación con anclas */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transiciones suaves para los enlaces del header */
+.nav-link {
+  transition: all 0.3s ease;
+}
