@@ -1,15 +1,27 @@
 <!-- Profile -->
-<div class="flex items-center gap-x-3">
-  <div class="shrink-0">
-    <img class="mb-1shrink-0 size-20 rounded-full object-cover" src="images/lmv.jpg" alt="Avatar">
+<div class="relative">
+  <div class="flex items-center gap-x-3">
+    <div class="shrink-0 relative group cursor-pointer">
+      <img class="mb-1 shrink-0 size-20 rounded-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl" src="images/lmv.jpg" alt="Eleazar Jarquín">
+    </div>
+    <div class="grow">
+      <h1 class="text-lg font-medium text-gray-800 dark:text-neutral-200">
+        Eleazar Jarquín Ramos
+      </h1>
+      <p class="text-sm text-gray-600 dark:text-neutral-400">
+        Backend Web Developer
+      </p>
+    </div>
   </div>
-  <div class="grow">
-    <h1 class="text-lg font-medium text-gray-800 dark:text-neutral-200">
-      Eleazar Jarquín Ramos
-    </h1>
-    <p class="text-sm text-gray-600 dark:text-neutral-400">
-      Backend Web Developer
-    </p>
+  
+  <!-- Avatar Animado Decorativo -->
+  <div class="fixed right-8 top-20 z-50 animate-float">
+    <div class="relative cursor-pointer group/avatar">
+      <img class="size-30 object-contain drop-shadow-2xl transition-all duration-300 group-hover/avatar:scale-110 group-hover/avatar:rotate-12" 
+           src="images/EleazarDevFS_sticker.png" 
+           alt="Avatar Animado">
+      <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover/avatar:opacity-30 blur-2xl transition-opacity duration-300"></div>
+    </div>
   </div>
 </div>
 <!-- End Profile -->
