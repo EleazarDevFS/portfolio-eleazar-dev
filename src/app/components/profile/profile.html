@@ -1,15 +1,27 @@
 <!-- Profile -->
-<div class="flex items-center gap-x-3">
-  <div class="shrink-0">
-    <img class="mb-1shrink-0 size-20 rounded-full object-cover" src="images/lmv.jpg" alt="Avatar">
+<div class="relative">
+  <div class="flex items-center gap-x-3">
+    <div class="shrink-0 relative group cursor-pointer">
+      <img class="mb-1 shrink-0 size-20 rounded-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl" src="images/lmv.jpg" alt="Eleazar Jarquín">
+    </div>
+    <div class="grow">
+      <h1 class="text-lg font-medium text-gray-800 dark:text-neutral-200">
+        Eleazar Jarquín Ramos
+      </h1>
+      <p class="text-sm text-gray-600 dark:text-neutral-400">
+        Backend Web Developer
+      </p>
+    </div>
   </div>
-  <div class="grow">
-    <h1 class="text-lg font-medium text-gray-800 dark:text-neutral-200">
-      Eleazar Jarquín Ramos
-    </h1>
-    <p class="text-sm text-gray-600 dark:text-neutral-400">
-      Backend Web Developer
-    </p>
+  
+  <!-- Avatar Animado Decorativo -->
+  <div class="fixed right-8 top-20 z-50 animate-float">
+    <div class="relative cursor-pointer group/avatar">
+      <img class="size-30 object-contain drop-shadow-2xl transition-all duration-300 group-hover/avatar:scale-110 group-hover/avatar:rotate-12" 
+           src="images/EleazarDevFS_sticker.png" 
+           alt="Avatar Animado">
+      <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover/avatar:opacity-30 blur-2xl transition-opacity duration-300"></div>
+    </div>
   </div>
 </div>
 <!-- End Profile -->
@@ -44,7 +56,7 @@
         Eleazar Jarquín Ramos
       </a>
     </li>
-    <li class="flex items-center gap-x-2">
+    <!-- <li class="flex items-center gap-x-2">
       <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="currentColor">
         <path d="M146.67-186.67v-466.66 466.66-19.5 19.5Zm0 66.67q-27 0-46.84-19.83Q80-159.67 80-186.67v-466.66q0-27
          19.83-46.84Q119.67-720 146.67-720H320v-93.33q0-26.34 19.83-46.5Q359.67-880 386.67-880h186.66q27 0 46.84 20.17Q640-839.67 
@@ -56,7 +68,7 @@
       <a href="files/CV - Eleazar Jarquín Ramos.pdf" class="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400" target="_blank">
         My CV
       </a>
-    </li>
+    </li> -->
   </ul>
 </div>
 <!-- End About -->
