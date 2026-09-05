@@ -1,7 +1,9 @@
 .stack-project{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 8px;
 }
 
 .item-tech {
